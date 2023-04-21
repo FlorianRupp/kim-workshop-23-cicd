@@ -26,6 +26,11 @@ jobs:
         run: |
           pip install rdflib
           python script.py
+      - name: Archive data
+        uses: actions/upload-artifact@v3
+        with:
+          name: Generated Movies RDF Data (ttl)
+          path: movies.ttl
       - name: Notify Discord
         run: |
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
