@@ -31,8 +31,8 @@ jobs:
           path: movies.ttl
       - name: Notify Discord
         run: |
-          echo "The artifact ID is ${{ steps.archive-data.outputs.upload_url }}"
+          echo "The artifact ID is ${{ steps.archive-data}}"
           echo "The artifact ID is ${{ steps.archive-data.outputs.id }}"
           artifact=${{ steps.archive-data.outputs.upload_url }}
           echo $artifact
-          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! $artifact "}' ${{ secrets.WEBHOOK }}
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! ${{ artifact }} "}' ${{ secrets.WEBHOOK }}
