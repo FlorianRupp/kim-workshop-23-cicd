@@ -32,9 +32,10 @@ jobs:
         with:
           name: Generated Movies RDF Data (ttl)
           path: movies.ttl
+        run:
+          echo "The artifact ID is ${{ steps.archive-data.outputs.artifact_id }}"
       - name: Notify Discord
         run: |
-          echo "The artifact ID is ${{ steps.archive-data.outputs.artifact_id }}"
           artifact=https://github.com/FlorianRupp/kim-workshop-23-cicd/suites/${{ GITHUB.RUN_ID }}/artifacts/${{ steps.archive-data.outputs.artifact_id }}
           echo $artifact
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! $artifact "}' ${{ secrets.WEBHOOK }}
