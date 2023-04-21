@@ -14,6 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
+      - name: Check-out repository
+        uses: actions/checkout@v2
+        with:
+          repository: FlorianRupp/kim-workshop-23-cicd
+      - name: Configure Git
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Generator Bot"
       - name: Generation
         run: |
           pip install rdflib
