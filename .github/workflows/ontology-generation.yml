@@ -24,6 +24,6 @@ jobs:
           python ontology/generate.py
       - name: Version generated ontology
         run: |
-          git add ontology.ttl
+          git add ontology/ontology.ttl
           git commit -m "Auto generated ontology.ttl based on recent changes of ontology.md"
           git push
