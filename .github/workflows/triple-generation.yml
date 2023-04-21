@@ -31,8 +31,8 @@ jobs:
           path: movies.ttl
       - name: Notify Discord
         run: |
-          echo "The artifact ID is ${{ steps.archive-data}}"
-          echo "The artifact ID is ${{ steps.archive-data.outputs.id }}"
+          echo ${{ toJson(steps.archive-data) }}
+          echo "The artifact ID is ${{ steps.archive-data.artifact_id }}"
           artifact=${{ steps.archive-data.outputs.upload_url }}
           echo "MY_VAR=${{ steps.archive-data.outputs.upload_url }}" >> $GITHUB_ENV
           echo $artifact
