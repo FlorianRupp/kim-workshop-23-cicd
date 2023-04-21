@@ -10,11 +10,22 @@ on:
 
 
 jobs:
-  Notify:
+  Generate-Triples:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+    permissions: write-all
     steps:
+      - name: Generation
+        run: |
+          pip install rdflib
+          python scripy.py
       - name: Notify Discord
         run: |
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
+
+
+
+  Notify:
+    runs-on: ubuntu-latest
+    permissions: none
+    steps:
+      - name: Notify Discord
