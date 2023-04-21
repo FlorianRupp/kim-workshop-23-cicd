@@ -21,7 +21,7 @@ jobs:
       - name: Generation
         run: |
           cd ontology
-          python ontology/generate.py
+          python generate.py
       - name: Version generated ontology
         run: |
           git add ontology.ttl
