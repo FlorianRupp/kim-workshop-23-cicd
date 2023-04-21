@@ -1,0 +1,20 @@
+
+name: Auto RDF triple generation
+run-name: |- 
+  Auto RDF triple generation.
+
+on:
+  issues:
+    types: [reopened, opened, closed]
+
+
+
+jobs:
+  Notify:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Notify Discord
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' $WEBHOOK
