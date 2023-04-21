@@ -31,8 +31,4 @@ jobs:
           path: movies.ttl
       - name: Notify Discord
         run: |
-          echo ${{ toJson(steps.archive-data) }}
-          artifact=${{ steps.archive-data.outputs.upload_url }}
-          echo "MY_VAR=${{ steps.archive-data.outputs.upload_url }}" >> $GITHUB_ENV
-          echo $artifact
-          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! ${{ env.MY_VAR }} "}' ${{ secrets.WEBHOOK }}
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
