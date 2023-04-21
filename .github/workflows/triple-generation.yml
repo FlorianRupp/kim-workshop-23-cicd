@@ -27,6 +27,7 @@ jobs:
           pip install rdflib
           python script.py
       - name: Archive data
+        id: archive-data
         uses: actions/upload-artifact@v3
         with:
           name: Generated Movies RDF Data (ttl)
