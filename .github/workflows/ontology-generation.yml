@@ -20,6 +20,7 @@ jobs:
           git config --global user.name "Generator Bot"
       - name: Generation
         run: |
+          cd ontology
           python ontology/generate.py
       - name: Version generated ontology
         run: |
