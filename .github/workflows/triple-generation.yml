@@ -3,10 +3,7 @@ name: Auto RDF triple generation
 run-name: |- 
   Auto RDF triple generation.
 
-on:
-  issues:
-    types: [reopened, opened, closed]
-
+on: workflow_dispatch
 
 
 jobs:
