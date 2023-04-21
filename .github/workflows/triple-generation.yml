@@ -34,4 +34,4 @@ jobs:
       - name: Notify Discord
         run: |
           artifact=https://github.com/FlorianRupp/kim-workshop-23-cicd/suites/{run_id}/artifacts/{artifact_id}
-          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! {artifact} "}' ${{ secrets.WEBHOOK }}
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert! $artifact "}' ${{ secrets.WEBHOOK }}
