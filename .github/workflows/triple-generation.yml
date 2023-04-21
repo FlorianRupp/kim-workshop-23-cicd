@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install rdflib
           python script.py
-      - name: Archive data
+      - name: archive-data
         id: archive-data
         uses: actions/upload-artifact@v3
         with:
@@ -32,7 +32,6 @@ jobs:
       - name: Notify Discord
         run: |
           echo ${{ toJson(steps.archive-data) }}
-          echo "The artifact ID is ${{ steps.archive-data.artifact_id }}"
           artifact=${{ steps.archive-data.outputs.upload_url }}
           echo "MY_VAR=${{ steps.archive-data.outputs.upload_url }}" >> $GITHUB_ENV
           echo $artifact
