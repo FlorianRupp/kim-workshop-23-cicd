@@ -35,5 +35,5 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
       - name: Upload to server
         run: |
-          apt-get install sshpass
+          sudo apt-get install sshpass
           sshpass -p {{ secrets.UPLOAD_PW }} scp data/movies.ttl {{ secrets.UPLOAD_URL }}
