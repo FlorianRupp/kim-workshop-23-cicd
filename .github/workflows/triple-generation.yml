@@ -8,7 +8,7 @@ on: workflow_dispatch
 
 jobs:
   Generate-Triples:
-    runs-on: sshpass
+    runs-on: ubuntu-latest
     permissions: write-all
     steps:
       - name: Check-out repository
@@ -35,4 +35,5 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
       - name: Upload to server
         run: |
+          apt-get install sshpass
           sshpass -p {{ secrets.UPLOAD_PW }} scp data/movies.ttl {{ secrets.UPLOAD_URL }}
