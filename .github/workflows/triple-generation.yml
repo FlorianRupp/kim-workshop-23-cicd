@@ -33,3 +33,13 @@ jobs:
       - name: Notify Discord
         run: |
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: new-data
+          release_name: Release 1
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
