@@ -33,11 +33,3 @@ jobs:
       - name: Notify Discord
         run: |
           curl -H "Content-Type: application/json" -X POST -d '{"content": "Hallo, die RDF-Daten wurden erfolgreich generiert!"}' ${{ secrets.WEBHOOK }}
-      - name: Upload to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.UPLOAD_HOST }}
-          username: ${{ secrets.UPLOAD_USER }}
-          password: ${{ secrets.UPLOAD_PW }}
-          source: "data/movies.ttl"
-          target: ${{ secrets.UPLOAD_PATH }}
