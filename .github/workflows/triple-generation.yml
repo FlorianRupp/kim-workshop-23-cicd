@@ -37,3 +37,12 @@ jobs:
         run: |
           sudo apt-get install sshpass
           sshpass -p {{ secrets.UPLOAD_PW }} scp data/movies.ttl {{ secrets.UPLOAD_URL }}
+          - uses: actions/checkout@v0.1.4
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.UPLOAD_HOST }}
+          username: ${{ secrets.UPLOAD_USER }}
+          password: ${{ secrets.UPLOAD_PW }}
+          source: "data/movies.ttl"
+          target: ${{ secrets.UPLOAD_PATH }}
