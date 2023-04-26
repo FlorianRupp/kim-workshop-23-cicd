@@ -8,7 +8,7 @@ on: workflow_dispatch
 
 jobs:
   Generate-Triples:
-    runs-on: ubuntu-latest
+    runs-on: sshpass
     permissions: write-all
     steps:
       - name: Check-out repository
