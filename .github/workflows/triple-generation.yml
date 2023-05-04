@@ -25,6 +25,8 @@ jobs:
       - name: Generation
         run: |
           cd data
+          rm movies.xml
+          wget http://courses.wisslab.org/data/movies.xml
           python script.py
       - name: Save data
         uses: actions/upload-artifact@v3
