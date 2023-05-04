@@ -2,6 +2,8 @@
 
 Github's CI/CD integration is a powerfull tool to create data pipelines and automated workflows.
 
-This is a repository for demonstrates this for the creation of semantic web related data:
-* Automated RDF data generation from Python scripts.
-* Automated generation and versioning of ontology specifications from markdown files.
+This is a demo repository for the creation of semantic web related data:
+1. Automated RDF data generation from Python scripts (triple-generation.yml).
+2. Automated generation and versioning of ontology specifications from markdown files (ontology-generation.yml).
+
+Workflow 1 generation (/data) executes a Python script which generates RDF data out of an XML file. Workflow 2 generation an ontology specification out of a human readable markdown syntax. After the generation the newly created ontology is ready to publish in turtle format and is directly versioned within this workflow.
