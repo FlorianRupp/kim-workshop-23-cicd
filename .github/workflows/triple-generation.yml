@@ -19,13 +19,14 @@ jobs:
         run: |
           git config --global user.email "you@example.com"
           git config --global user.name "Generator Bot"
-      - name: Generation
+      - name: Setup Python
         run: |
           pip install rdflib
+      - name: Generation
+        run: |
           cd data
           python script.py
-      - name: archive-data
-        id: archive-data
+      - name: Save data
         uses: actions/upload-artifact@v3
         with:
           name: Generated Movies RDF Data (ttl)
