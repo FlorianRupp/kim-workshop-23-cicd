@@ -1,13 +1,47 @@
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-foaf:name
+@prefix ex: <http://example.org/ont/>
+ex:Character
+    a rdfs:Class ;
+    rdfs:label "Character"@en ;
+    rdfs:comment "An entity describing a fictive character."@en ;
+    rdfs:range rdfs:Resource .
+ex:Company
+    a rdfs:Class ;
+    rdfs:label "Company"@en ;
+    rdfs:comment "An entity describing a company creating moving."@en ;
+    rdfs:range rdfs:Resource .
+ex:Genre
+    a rdfs:Class ;
+    rdfs:label "Genre"@en ;
+    rdfs:comment "An entity describing a movie genre."@en ;
+    rdfs:range rdfs:Resource .
+ex:Movie
+    a rdfs:Class ;
+    rdfs:label "Movie"@en ;
+    rdfs:comment "An entity describing a movie."@en ;
+    rdfs:range rdfs:Resource .
+ex:hasCharacter
     a rdf:Property ;
-    rdfs:label "name"@en ;
-    rdfs:comment "The full name of the person."@en ;
-    rdfs:range rdfs:Literal .
-foaf:birthday
+    rdfs:label "has character"@en ;
+    rdfs:comment "A character appearing in a movie."@en ;
+    rdfs:range ex:Character .
+ex:hasGenre
     a rdf:Property ;
-    rdfs:label "birthday"@en ;
-    rdfs:comment "The date the person was born"@en ;
-    rdfs:range rdfs:Literal .
+    rdfs:label "has side character"@en ;
+    rdfs:comment "A side character appearing in a movie."@en ;
+    rdfs:range ex:Character .
+ex:hasGenre
+    a rdf:Property ;
+    rdfs:label "has genre"@en ;
+    rdfs:comment "A genre the movie is associated with."@en ;
+    rdfs:range ex:Genre .
+ex:Person
+    a rdfs:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:comment "An entity describing an existing person."@en ;
+    rdfs:range rdfs:Resource .
+ex:plays
+    a rdf:Property ;
+    rdfs:label "plays"@en ;
+    rdfs:comment "The character a person plays in a movie."@en ;
+    rdfs:range ex:Character .
