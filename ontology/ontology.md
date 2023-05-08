@@ -72,7 +72,7 @@ ex:hasCharacter
 
 #### ex:hasSideCharacter
 ```
-ex:hasGenre
+ex:hasSideCharacter
     a rdf:Property ;
     rdfs:label "has side character"@en ;
     rdfs:comment "A side character appearing in a movie."@en ;
