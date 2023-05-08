@@ -25,7 +25,7 @@ ex:hasCharacter
     rdfs:label "has character"@en ;
     rdfs:comment "A character appearing in a movie."@en ;
     rdfs:range ex:Character .
-ex:hasGenre
+ex:hasSideCharacter
     a rdf:Property ;
     rdfs:label "has side character"@en ;
     rdfs:comment "A side character appearing in a movie."@en ;
